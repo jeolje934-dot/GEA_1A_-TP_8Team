@@ -2,19 +2,27 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float speed = 30f;
-    public float lifeTime = 3f;
+    public int damage = 1;
+    public float lifeTime = 2f;
+    public string targetTag = "Enemy";
+    public string ownerTag = "Player";
 
-    private Rigidbody rb;
-
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-
-        // 총알을 앞으로 발사
-        rb.linearVelocity = transform.forward * speed;
-
-        // 3초 후 자동 삭제
         Destroy(gameObject, lifeTime);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.isTrigger) return;
+        if (other.CompareTag(ownerTag)) return;
+
+        if (other.CompareTag(targetTag))
+        {
+            Health hp = other.GetComponent<Health>();
+            if (hp != null) hp.TakeDamage(damage);
+        }
+        Destroy(gameObject);
     }
 }
