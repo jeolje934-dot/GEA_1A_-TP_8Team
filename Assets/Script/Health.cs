@@ -35,12 +35,21 @@ public class Health : MonoBehaviour
         if (CompareTag("Player"))
         {
             Debug.Log("게임 오버");
-            Time.timeScale = 0f;
+
+            if (GameOverUI.Instance != null)
+            {
+                GameOverUI.Instance.ShowGameOver();
+            }
+            else
+            {
+                Debug.LogWarning("GameOverUI가 연결되지 않았습니다!");
+                Time.timeScale = 0f;
+            }
         }
         else
         {
+            ScoreManager.Instance.AddKillReward();
             Destroy(gameObject);
         }
     }
-
 }

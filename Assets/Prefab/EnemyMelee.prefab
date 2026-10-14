@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 6756437626970130871}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.27822, y: 0.89475, z: 1.27822}
+  m_LocalPosition: {x: 1.27822, y: 0.89475, z: 3.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dde6e8fbc22eeaf4a8c3a613da22dfd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  maxHp: 3
+  maxHp: 5
   currentHp: 0
   hpSlider: {fileID: 0}
 --- !u!114 &6203151468393280473
@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyChaser
   moveSpeed: 1
-  detectRange: 15
+  detectRange: 100
   attackRange: 1.5
   damage: 1
   attackCooldown: 1
@@ -115,7 +115,7 @@ Transform:
   m_GameObject: {fileID: 7400178378840731959}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.56, y: -0.28, z: 3.45}
+  m_LocalPosition: {x: -0.56, y: -0.28, z: -0.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
