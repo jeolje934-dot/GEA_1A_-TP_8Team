@@ -16,11 +16,14 @@ public class PlayerStats : MonoBehaviour
     public float attackSpeedIncrease = 0.2f;
 
     [Tooltip("레벨업 시 증가하는 최대 체력")]
-    public int maxHealthIncrease = 20;
+    public int maxHealthIncrease = 5;
 
     [Header("체력 능력치")]
     public int maxHealth = 100;
     public int currentHealth = 100;
+
+    [Header("체력 연결")]
+    public Health playerHealth;
 
     // 공격력 강화
     public void UpgradeAttackPower()
@@ -43,12 +46,14 @@ public class PlayerStats : MonoBehaviour
     // 최대 체력 강화
     public void UpgradeMaxHealth()
     {
-        maxHealth += maxHealthIncrease;
-        currentHealth += maxHealthIncrease;
+        if (playerHealth == null)
+        {
+            Debug.LogError("PlayerHealth가 연결되지 않았습니다!");
+            return;
+        }
 
-        currentHealth = Mathf.Min(currentHealth, maxHealth);
+        playerHealth.IncreaseMaxHp(maxHealthIncrease);
 
-        Debug.Log("최대 체력 증가! 현재 체력: "
-            + currentHealth + " / " + maxHealth);
+        Debug.Log("체력 강화 선택 완료!");
     }
 }

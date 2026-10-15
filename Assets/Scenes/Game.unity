@@ -2265,7 +2265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dde6e8fbc22eeaf4a8c3a613da22dfd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  maxHp: 3
+  maxHp: 7
   currentHp: 0
   hpSlider: {fileID: 557663159}
 --- !u!114 &1167646056
@@ -2299,10 +2299,11 @@ MonoBehaviour:
   attackPower: 1
   attackCooldown: 0.5
   attackPowerIncrease: 1
-  attackSpeedIncrease: 0.2
+  attackSpeedIncrease: 0.5
   maxHealthIncrease: 5
   maxHealth: 100
   currentHealth: 100
+  playerHealth: {fileID: 1167646055}
 --- !u!1 &1176706723
 GameObject:
   m_ObjectHideFlags: 0
@@ -2620,6 +2621,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   enemyPrefabs:
   - {fileID: 6756437626970130871, guid: 53fdf3be1d124a449b6596822eea1e4d, type: 3}
+  - {fileID: 6756437626970130871, guid: 23d0f7768a5e2ee4ea3e46fd4afb9321, type: 3}
+  - {fileID: 6756437626970130871, guid: 6a3e9ace0b40c0a4483a5cc9bc887cbf, type: 3}
   spawnPoints:
   - {fileID: 1059184406}
   - {fileID: 1479363115}

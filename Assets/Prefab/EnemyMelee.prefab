@@ -83,10 +83,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddce7520b49e3674eb8bb7b88c811304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyChaser
-  moveSpeed: 1
+  moveSpeed: 2
   detectRange: 100
   attackRange: 1.5
-  damage: 1
+  damage: 2
   attackCooldown: 1
 --- !u!1 &7400178378840731959
 GameObject:

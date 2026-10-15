@@ -23,6 +23,22 @@ public class Health : MonoBehaviour
 
         if (currentHp <= 0) Die();
     }
+    public void IncreaseMaxHp(int amount)
+    {
+        maxHp += amount;
+        currentHp += amount;
+
+        currentHp = Mathf.Min(currentHp, maxHp);
+
+        if (hpSlider != null)
+        {
+            hpSlider.maxValue = maxHp;
+            hpSlider.value = currentHp;
+        }
+
+        Debug.Log("체력 강화 적용! 현재 체력: "
+            + currentHp + " / " + maxHp);
+    }
 
     void UpdateBar()
     {
