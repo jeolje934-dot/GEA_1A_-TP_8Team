@@ -22,7 +22,6 @@ public class Bullet : MonoBehaviour
 
             if (playerStats != null)
             {
-                // 현재 플레이어 공격력을 총알에 적용
                 damage = playerStats.attackPower;
             }
             else
@@ -50,13 +49,25 @@ public class Bullet : MonoBehaviour
 
         if (other.CompareTag(targetTag))
         {
-            // 적 본체 또는 부모 오브젝트에서 체력 찾기
-            Health hp = other.GetComponentInParent<Health>();
+            // 먼저 보스 전용 체력 확인
+            BossHealth bossHp =
+                other.GetComponentInParent<BossHealth>();
 
-            if (hp != null)
+            if (bossHp != null)
             {
-                hp.TakeDamage(damage);
-                Debug.Log("적에게 가한 피해: " + damage);
+                bossHp.TakeDamage(damage);
+                Debug.Log("보스에게 가한 피해: " + damage);
+            }
+            else
+            {
+                // 보스가 아니라면 기존 일반 몬스터 체력 처리
+                Health hp = other.GetComponentInParent<Health>();
+
+                if (hp != null)
+                {
+                    hp.TakeDamage(damage);
+                    Debug.Log("일반 몬스터에게 가한 피해: " + damage);
+                }
             }
         }
 

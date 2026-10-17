@@ -64,7 +64,28 @@ public class Health : MonoBehaviour
         }
         else
         {
-            ScoreManager.Instance.AddKillReward();
+            EnemyExperienceReward reward =
+                GetComponent<EnemyExperienceReward>();
+
+            if (reward == null)
+            {
+                reward = GetComponentInParent<EnemyExperienceReward>();
+            }
+
+            if (ScoreManager.Instance != null)
+            {
+                if (reward != null)
+                {
+                    ScoreManager.Instance.AddKillReward(
+                        reward.experienceReward
+                    );
+                }
+                else
+                {
+                    ScoreManager.Instance.AddKillReward();
+                }
+            }
+
             Destroy(gameObject);
         }
     }

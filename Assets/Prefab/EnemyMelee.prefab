@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8737357090077229973}
   - component: {fileID: 517383628103832738}
   - component: {fileID: 6203151468393280473}
+  - component: {fileID: -3677381313468365880}
   m_Layer: 0
   m_Name: EnemyMelee
   m_TagString: Enemy
@@ -88,6 +89,19 @@ MonoBehaviour:
   attackRange: 1.5
   damage: 2
   attackCooldown: 1
+--- !u!114 &-3677381313468365880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6756437626970130871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d40cb94468088448bc9e07c3ae366c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyExperienceReward
+  experienceReward: 30
 --- !u!1 &7400178378840731959
 GameObject:
   m_ObjectHideFlags: 0

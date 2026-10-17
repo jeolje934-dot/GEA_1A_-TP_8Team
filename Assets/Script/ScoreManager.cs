@@ -23,7 +23,9 @@ public class ScoreManager : MonoBehaviour
     public int level = 1;
     public int currentExp = 0;
     public int expToNextLevel = 100;
-    public int expPerKill = 25;
+
+    // 보상 컴포넌트가 없는 적에게 적용되는 기본 경험치
+    public int expPerKill = 1;
 
     [Header("레벨업 선택창")]
     public LevelUpUI levelUpUI;
@@ -52,20 +54,23 @@ public class ScoreManager : MonoBehaviour
         UpdateUI();
     }
 
-    // 적 처치 보상
+    // 기존 코드와의 호환성을 위한 기본 처치 보상
     public void AddKillReward()
     {
-        // 레벨업 선택 중에는 보상을 중복 처리하지 않음
+        AddKillReward(expPerKill);
+    }
+
+    // 지정된 경험치만큼 처치 보상 지급
+    public void AddKillReward(int expReward)
+    {
         if (isLevelingUp)
             return;
 
         score += scorePerKill;
-        currentExp += expPerKill;
+        currentExp += Mathf.Max(0, expReward);
 
-        UpdateUI();
-
-        // 레벨업 조건 확인
-        if (currentExp >= expToNextLevel)
+        // 경험치가 남아 있다면 연속 레벨업도 처리
+        while (currentExp >= expToNextLevel)
         {
             currentExp -= expToNextLevel;
             level++;
@@ -74,9 +79,12 @@ public class ScoreManager : MonoBehaviour
                 Mathf.CeilToInt(expToNextLevel * 1.5f);
 
             isLevelingUp = true;
+        }
 
-            UpdateUI();
+        UpdateUI();
 
+        if (isLevelingUp)
+        {
             if (levelUpUI != null)
             {
                 levelUpUI.Show();

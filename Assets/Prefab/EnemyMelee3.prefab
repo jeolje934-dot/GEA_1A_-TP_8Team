@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 8737357090077229973}
   - component: {fileID: 517383628103832738}
   - component: {fileID: 869718674427283951}
+  - component: {fileID: -4698839739711085021}
   m_Layer: 0
   m_Name: EnemyMelee3
   m_TagString: Enemy
@@ -121,6 +122,19 @@ MonoBehaviour:
   attackCooldown: 2
   projectilePrefab: {fileID: 1337818311809073812, guid: f4112a6d21a852b47ac696bd799f0cc3, type: 3}
   firePoint: {fileID: 5770611506480064596}
+--- !u!114 &-4698839739711085021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6756437626970130871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d40cb94468088448bc9e07c3ae366c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyExperienceReward
+  experienceReward: 30
 --- !u!1 &7400178378840731959
 GameObject:
   m_ObjectHideFlags: 0
