@@ -3010,6 +3010,7 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 6756437626970130871, guid: 53fdf3be1d124a449b6596822eea1e4d, type: 3}
   - {fileID: 6756437626970130871, guid: 23d0f7768a5e2ee4ea3e46fd4afb9321, type: 3}
+  - {fileID: 6756437626970130871, guid: 6a3e9ace0b40c0a4483a5cc9bc887cbf, type: 3}
   spawnPoints:
   - {fileID: 1059184406}
   - {fileID: 1479363115}
@@ -3019,7 +3020,7 @@ MonoBehaviour:
   maxAlive: 10
   enemiesPerRound: 10
   bossPrefab: {fileID: 7260094878644539997, guid: 3f5596148b8864149a6ffd089b34627d, type: 3}
-  bossRoundInterval: 2
+  bossRoundInterval: 3
   currentRound: 1
 --- !u!4 &1258655185
 Transform:
