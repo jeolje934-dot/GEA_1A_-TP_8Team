@@ -74,13 +74,6 @@ public class PlayerController : MonoBehaviour
             verticalVelocity = -2f;
         }
 
-        // 상하 카메라 회전
-        pitch -= lookInput.y * mouseSensitivity;
-        pitch = Mathf.Clamp(pitch, -20f, 60f);
-
-        cameraPivot.localEulerAngles =
-            new Vector3(pitch, 0f, 0f);
-
         verticalVelocity += gravity * Time.deltaTime;
 
         Vector3 move =

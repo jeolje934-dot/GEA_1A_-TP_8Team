@@ -46,11 +46,7 @@ public class Health : MonoBehaviour
 
         currentHp = Mathf.Min(currentHp, maxHp);
 
-        if (hpSlider != null)
-        {
-            hpSlider.maxValue = maxHp;
-            hpSlider.value = currentHp;
-        }
+        UpdateBar();
 
         Debug.Log("체력 강화 적용! 현재 체력: "
             + currentHp + " / " + maxHp);
@@ -59,7 +55,10 @@ public class Health : MonoBehaviour
     void UpdateBar()
     {
         if (hpSlider != null)
-            hpSlider.value = (float)currentHp / maxHp;
+        {
+            hpSlider.maxValue = maxHp;
+            hpSlider.value = currentHp;
+        }
     }
 
     void Die()
