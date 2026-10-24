@@ -16,4 +16,8 @@ public class EXPBarUI : MonoBehaviour
         expSlider.maxValue = requiredExp;
         expSlider.value = currentExp;
     }
+
+
+
+    
 }

@@ -54,6 +54,9 @@ public class ScoreManager : MonoBehaviour
         UpdateUI();
     }
 
+
+
+
     // 기존 코드와의 호환성을 위한 기본 처치 보상
     public void AddKillReward()
     {
@@ -74,6 +77,14 @@ public class ScoreManager : MonoBehaviour
         {
             currentExp -= expToNextLevel;
             level++;
+
+            // 플레이어 레벨업 시 경험치 소리 
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlayLevelUp();
+            }
+
+
 
             expToNextLevel =
                 Mathf.CeilToInt(expToNextLevel * 1.5f);

@@ -21,6 +21,22 @@ public class Health : MonoBehaviour
         Debug.Log(name + "HP: " + currentHp);
         UpdateBar();
 
+
+
+        if (AudioManager.Instance != null)
+        {
+            if (CompareTag("Player"))
+            {
+                AudioManager.Instance.PlayPlayerHit();
+            }
+            else
+            {
+                AudioManager.Instance.PlayEnemyHit();
+            }
+        }
+
+
+
         if (currentHp <= 0) Die();
     }
     public void IncreaseMaxHp(int amount)
