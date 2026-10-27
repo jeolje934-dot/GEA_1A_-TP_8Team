@@ -10,14 +10,42 @@ public class BossHealth : MonoBehaviour
     private int currentHealth;
     private bool isDead = false;
 
+    [Header("라운드별 체력 증가")]
+    [SerializeField] private float hpIncreasePerRound = 0.2f;
+    [SerializeField] private float maxHpMultiplier = 3f;
+
     [Header("보스 체력 UI")]
     public GameObject bossHealthPanel;
     public Slider healthSlider;
     public TMP_Text bossNameText;
 
+    void Awake()
+    {
+        int round = 1;
+
+        if (EnemySpawner.Instance != null)
+            round = EnemySpawner.Instance.currentRound;
+
+        float multiplier = Mathf.Min(
+            1f + (round - 1) * hpIncreasePerRound,
+            maxHpMultiplier
+        );
+
+        maxHealth = Mathf.Max(
+            1,
+            Mathf.RoundToInt(maxHealth * multiplier)
+        );
+
+        currentHealth = maxHealth;
+
+        Debug.Log(
+            $"보스 체력 적용: 라운드 {round}, " +
+            $"최대 체력 {maxHealth}"
+        );
+    }
+
     void Start()
     {
-        // 씬에 있는 보스 UI 관리자 찾기
         BossUIController ui =
             FindFirstObjectByType<BossUIController>();
 
@@ -34,8 +62,6 @@ public class BossHealth : MonoBehaviour
             );
         }
 
-        currentHealth = maxHealth;
-
         if (healthSlider != null)
         {
             healthSlider.minValue = 0;
@@ -44,14 +70,10 @@ public class BossHealth : MonoBehaviour
         }
 
         if (bossNameText != null)
-        {
             bossNameText.text = "악어 보스";
-        }
 
         if (bossHealthPanel != null)
-        {
             bossHealthPanel.SetActive(true);
-        }
     }
 
     public void TakeDamage(int damage)
@@ -59,21 +81,15 @@ public class BossHealth : MonoBehaviour
         if (isDead) return;
 
         currentHealth -= damage;
-        currentHealth = Mathf.Clamp(
-            currentHealth, 0, maxHealth
-        );
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
         if (healthSlider != null)
-        {
             healthSlider.value = currentHealth;
-        }
 
         Debug.Log("보스 HP: " + currentHealth);
 
         if (currentHealth <= 0)
-        {
             Die();
-        }
     }
 
     void Die()
@@ -83,14 +99,10 @@ public class BossHealth : MonoBehaviour
         isDead = true;
 
         if (bossHealthPanel != null)
-        {
             bossHealthPanel.SetActive(false);
-        }
 
         if (ScoreManager.Instance != null)
-        {
             ScoreManager.Instance.AddKillReward();
-        }
 
         Destroy(gameObject);
     }

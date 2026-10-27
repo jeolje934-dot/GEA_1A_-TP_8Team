@@ -47,6 +47,7 @@ public class BossAttackPatterns : MonoBehaviour
     private Vector3 chargeDirection;
     private bool hasHitPlayer;
 
+
     void Start()
     {
         if (player == null)
@@ -57,10 +58,37 @@ public class BossAttackPatterns : MonoBehaviour
                 player = p.transform;
         }
 
+        // 라운드별 보스 공격력 증가
+        int round = 1;
+
+        if (EnemySpawner.Instance != null)
+            round = EnemySpawner.Instance.currentRound;
+
+        float damageMultiplier = Mathf.Min(
+            1f + (round - 1) * 0.15f,
+            2.5f
+        );
+
+        chargeDamage = Mathf.Max(
+            1,
+            Mathf.RoundToInt(chargeDamage * damageMultiplier)
+        );
+
+        projectileDamage = Mathf.Max(
+            1,
+            Mathf.RoundToInt(projectileDamage * damageMultiplier)
+        );
+
+        Debug.Log(
+            $"보스 공격력 적용: 라운드 {round}, " +
+            $"돌진 {chargeDamage}, 물대포 {projectileDamage}"
+        );
+
         nextPatternTime = Time.time + patternInterval;
         nextChargeTime = Time.time + chargeCooldown;
         nextWaterTime = Time.time + waterCooldown;
     }
+
 
     void Update()
     {

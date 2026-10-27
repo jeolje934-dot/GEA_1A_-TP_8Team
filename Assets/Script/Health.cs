@@ -79,6 +79,12 @@ public class Health : MonoBehaviour
         }
         else
         {
+            // 처치 기록 등록
+            if (CombatStats.Instance != null)
+            {
+                CombatStats.Instance.RegisterKill();
+            }
+
             EnemyExperienceReward reward =
                 GetComponent<EnemyExperienceReward>();
 
