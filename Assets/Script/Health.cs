@@ -67,6 +67,11 @@ public class Health : MonoBehaviour
         {
             Debug.Log("게임 오버");
 
+            if (BGMManager.Instance != null)
+            {
+                BGMManager.Instance.StopBGM();
+            }
+
             if (GameOverUI.Instance != null)
             {
                 GameOverUI.Instance.ShowGameOver();
