@@ -30,6 +30,11 @@ public class ScoreManager : MonoBehaviour
     [Header("레벨업 선택창")]
     public LevelUpUI levelUpUI;
 
+    [Header("속성 선택창")]
+    public ElementChoiceUI elementChoiceUI;
+
+    private bool hasChosenElement = false;
+
     private bool isLevelingUp = false;
 
     void Awake()
@@ -92,21 +97,42 @@ public class ScoreManager : MonoBehaviour
             isLevelingUp = true;
         }
 
+
         UpdateUI();
 
         if (isLevelingUp)
         {
-            if (levelUpUI != null)
+            // 레벨 10 이상이고 아직 속성을 선택하지 않았다면
+            // 일반 레벨업 대신 속성 선택창을 표시
+            if (level >= 10 && !hasChosenElement)
             {
-                levelUpUI.Show();
+                if (elementChoiceUI != null)
+                {
+                    elementChoiceUI.Show();
+                }
+                else
+                {
+                    Debug.LogWarning(
+                        "ElementChoiceUI가 연결되지 않았습니다. 일반 레벨업 창을 표시합니다."
+                    );
+
+                    if (levelUpUI != null)
+                        levelUpUI.Show();
+                    else
+                        isLevelingUp = false;
+                }
             }
             else
             {
-                Debug.LogWarning(
-                    "LevelUpUI가 연결되지 않았습니다!"
-                );
-
-                isLevelingUp = false;
+                if (levelUpUI != null)
+                {
+                    levelUpUI.Show();
+                }
+                else
+                {
+                    Debug.LogWarning("LevelUpUI가 연결되지 않았습니다!");
+                    isLevelingUp = false;
+                }
             }
         }
     }
@@ -116,7 +142,10 @@ public class ScoreManager : MonoBehaviour
         isLevelingUp = false;
         UpdateUI();
     }
-
+    public void MarkElementChosen()
+    {
+        hasChosenElement = true;
+    }
     void UpdateUI()
     {
         if (scoreText != null)
@@ -124,6 +153,7 @@ public class ScoreManager : MonoBehaviour
 
         if (levelText != null)
             levelText.text = "Lv. " + level;
+
 
         if (expSlider != null)
         {
@@ -137,5 +167,6 @@ public class ScoreManager : MonoBehaviour
             expText.text =
                 currentExp + " / " + expToNextLevel;
         }
+
     }
 }

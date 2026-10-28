@@ -573,6 +573,7 @@ GameObject:
   - component: {fileID: 8087697008222661801}
   - component: {fileID: 8817204349911687418}
   - component: {fileID: 3670061791851423682}
+  - component: {fileID: 8790742571873368601}
   m_Layer: 0
   m_Name: BossCrocodile
   m_TagString: Enemy
@@ -752,6 +753,23 @@ MonoBehaviour:
   projectileSpeed: 10
   projectileDamage: 3
   waterCooldown: 5
+--- !u!114 &8790742571873368601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7260094878644539997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 186709f05d47a3d4e9e148bd031e1aa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ElementalStatusEffect
+  burnDamage: 1
+  burnDuration: 3
+  burnInterval: 1
+  slowDuration: 2
+  slowAmount: 0.4
 --- !u!1 &8089391139606653151
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6203151468393280473}
   - component: {fileID: -3677381313468365880}
   - component: {fileID: -6257879733921269725}
+  - component: {fileID: 1040809113656059754}
   m_Layer: 0
   m_Name: EnemyMelee
   m_TagString: Enemy
@@ -73,6 +74,7 @@ MonoBehaviour:
   maxHp: 10
   currentHp: 0
   hpSlider: {fileID: 0}
+  damageFlash: {fileID: 0}
 --- !u!114 &6203151468393280473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,6 +121,23 @@ MonoBehaviour:
   damageIncreasePerRound: 0.2
   maxHpMultiplier: 3
   maxDamageMultiplier: 3
+--- !u!114 &1040809113656059754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6756437626970130871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 186709f05d47a3d4e9e148bd031e1aa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ElementalStatusEffect
+  burnDamage: 1
+  burnDuration: 3
+  burnInterval: 1
+  slowDuration: 2
+  slowAmount: 0.4
 --- !u!1001 &1138871233837272324
 PrefabInstance:
   m_ObjectHideFlags: 0
