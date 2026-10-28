@@ -5,7 +5,8 @@ public class Health : MonoBehaviour
     public int maxHp = 3;
     public int currentHp;
     public Slider hpSlider;
-
+    [Header("피격 화면 효과")]
+    [SerializeField] private DamageFlash damageFlash;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,6 +21,11 @@ public class Health : MonoBehaviour
         currentHp -= damage;
         Debug.Log(name + "HP: " + currentHp);
         UpdateBar();
+        // 플레이어가 피해를 입었을 때만 화면 깜빡임
+        if (CompareTag("Player") && damageFlash != null)
+        {
+            damageFlash.PlayFlash();
+        }
 
 
 
