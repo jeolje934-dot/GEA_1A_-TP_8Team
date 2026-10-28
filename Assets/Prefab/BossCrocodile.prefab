@@ -688,7 +688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f3df643def14c4c85423e04db9d31f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossHealth
-  maxHealth: 100
+  maxHealth: 70
   hpIncreasePerRound: 0.2
   maxHpMultiplier: 3
   bossHealthPanel: {fileID: 5128990666036966621}
@@ -709,7 +709,7 @@ MonoBehaviour:
   moveSpeed: 2
   detectRange: 15
   attackRange: 1.5
-  damage: 1
+  damage: 3
   attackCooldown: 1
 --- !u!114 &8817204349911687418
 MonoBehaviour:
@@ -737,20 +737,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossAttackPatterns
   player: {fileID: 0}
-  moveSpeed: 2
+  moveSpeed: 3
   stopDistance: 5
   patternInterval: 4
   chargeSpeed: 12
   chargeDuration: 0.6
   chargeCooldown: 5
-  chargeDamage: 2
+  chargeDamage: 4
   chargeHitDistance: 1.5
   waterProjectilePrefab: {fileID: 7124909229519442385, guid: 8e3deaa308328404d82932170bae8c04, type: 3}
   firePoint: {fileID: 8808855844017098769}
   projectileCount: 5
   fanAngle: 60
   projectileSpeed: 10
-  projectileDamage: 1
+  projectileDamage: 3
   waterCooldown: 5
 --- !u!1 &8089391139606653151
 GameObject:

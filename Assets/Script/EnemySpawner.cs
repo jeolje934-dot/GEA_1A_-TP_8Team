@@ -64,6 +64,10 @@ public class EnemySpawner : MonoBehaviour
             $"ROUND {currentRound} 시작! " +
             $"일반 적 목표: {CurrentEnemiesPerRound}마리"
         );
+        if (AppleSpawner.Instance != null)
+        {
+            AppleSpawner.Instance.SpawnApplesForRound();
+        }
     }
 
     void Update()
@@ -195,6 +199,7 @@ public class EnemySpawner : MonoBehaviour
     }
 
     // 다음 라운드
+    // 다음 라운드
     void NextRound()
     {
         currentRound++;
@@ -202,6 +207,12 @@ public class EnemySpawner : MonoBehaviour
         enemiesSpawned = 0;
         bossSpawned = false;
         timer = 0f;
+
+        // 새 라운드 사과 생성
+        if (AppleSpawner.Instance != null)
+        {
+            AppleSpawner.Instance.SpawnApplesForRound();
+        }
 
         Debug.Log(
             $"ROUND {currentRound} 시작! " +

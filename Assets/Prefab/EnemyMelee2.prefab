@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dde6e8fbc22eeaf4a8c3a613da22dfd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  maxHp: 15
+  maxHp: 16
   currentHp: 0
   hpSlider: {fileID: 0}
 --- !u!114 &6203151468393280473
@@ -85,10 +85,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddce7520b49e3674eb8bb7b88c811304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyChaser
-  moveSpeed: 1
+  moveSpeed: 3
   detectRange: 100
   attackRange: 1.5
-  damage: 1
+  damage: 3
   attackCooldown: 1
 --- !u!114 &-1512420005445077512
 MonoBehaviour:

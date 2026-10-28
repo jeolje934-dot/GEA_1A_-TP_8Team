@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dde6e8fbc22eeaf4a8c3a613da22dfd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  maxHp: 5
+  maxHp: 9
   currentHp: 0
   hpSlider: {fileID: 0}
 --- !u!114 &869718674427283951
@@ -117,8 +117,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a4697ca26bd2b948883433ce23d1eba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyRanged
-  moveSpeed: 2
-  detectRange: 15
+  moveSpeed: 3
+  detectRange: 100
   keepDistance: 8
   damage: 5
   attackCooldown: 2

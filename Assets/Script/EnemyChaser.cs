@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyChaser : MonoBehaviour
 {
     public float moveSpeed = 2f;
-    public float detectRange = 15f;
+    public float detectRange = 100f;
     public float attackRange = 1.5f;
     public int damage = 1;
     public float attackCooldown = 1f;
