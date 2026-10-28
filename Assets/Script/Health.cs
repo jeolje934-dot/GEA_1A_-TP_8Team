@@ -67,6 +67,11 @@ public class Health : MonoBehaviour
         {
             Debug.Log("게임 오버");
 
+            if (BGMManager.Instance != null)
+            {
+                BGMManager.Instance.StopBGM();
+            }
+
             if (GameOverUI.Instance != null)
             {
                 GameOverUI.Instance.ShowGameOver();
@@ -79,6 +84,12 @@ public class Health : MonoBehaviour
         }
         else
         {
+            // 처치 기록 등록
+            if (CombatStats.Instance != null)
+            {
+                CombatStats.Instance.RegisterKill();
+            }
+
             EnemyExperienceReward reward =
                 GetComponent<EnemyExperienceReward>();
 

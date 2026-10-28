@@ -82,6 +82,11 @@ public class PauseMenu : MonoBehaviour
     {
         UpdateStatsUI();
 
+        if (CombatStats.Instance != null)
+        {
+            CombatStats.Instance.UpdateUI();
+        }
+
         pausePanel.SetActive(false);
         statsPanel.SetActive(true);
     }
